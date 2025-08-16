@@ -237,21 +237,21 @@ const FullScreenProjects = () => {
             </ViewAllProjectsButton>
           </motion.div>
         </Container>
- <ResponsiveWebsiteEmbed
-        url="https://pixel-duo.vercel.app/"
-        initialDeviceView="mobile" // Mặc định hiển thị mobile
-        visibleDevices={['mobile', 'desktop', 'tablet']}
+        <ResponsiveWebsiteEmbed
+          url="https://pixel-duo.vercel.app/"
+          initialDeviceView="desktop" // Mặc định hiển thị mobile
+          visibleDevices={['mobile', 'desktop', 'tablet']}
 
-        scales={{
-          desktop: { xs: 0.2, lg: 0.5 }, // Ghi đè scale mặc định cho desktop
-          mobile: { xs: 0.2, lg: .8 },  // Ghi đè scale mặc định cho mobile
-          tablet: { xs: 0.2, lg: .5 }
-        }}
+          scales={{
+            desktop: { xs: 0.2, lg: 0.5 }, // Ghi đè scale mặc định cho desktop
+            mobile: { xs: .5, lg: .8 },  // Ghi đè scale mặc định cho mobile
+            tablet: { xs: 0.2, lg: .5 }
+          }}
 
-      />
+        />
         <Box sx={{ height: `${(projects.length + 1)}vh`, position: 'relative' }} />
 
-        <Box sx={{ position: 'relative'}}>
+        <Box sx={{ position: 'relative' }}>
           {projects.map((project, index) => {
             const progress = useTransform(
               scrollYProgress,
@@ -394,9 +394,9 @@ const FullScreenProjects = () => {
                           visibleDevices={project.device}
 
                           scales={{
-                            desktop: {xs: 0.5, md: 0.5}, // Ghi đè scale mặc định cho desktop
-                            mobile: {xs: 0.5, md: 0.7},  // Ghi đè scale mặc định cho mobile
-                            tablet: {xs: 0.5, md: 0.5}
+                            desktop: { xs: 0.5, md: 0.5 }, // Ghi đè scale mặc định cho desktop
+                            mobile: { xs: 0.5, md: 0.7 },  // Ghi đè scale mặc định cho mobile
+                            tablet: { xs: 0.5, md: 0.5 }
                           }}
 
                         />

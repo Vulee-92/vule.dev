@@ -88,12 +88,12 @@ export default function ResponsiveWebsiteEmbed({
 }: ResponsiveWebsiteEmbedProps) {
   
   const theme = useTheme();
-    const containerRef = useRef<HTMLDivElement>(null);
   
   // Gọi tất cả các hooks lên cấp cao nhất của component
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
   const isSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const isXs = useMediaQuery(theme.breakpoints.up('xs'));
 
   const allDeviceKeys = Object.keys(deviceIcons) as readonly DeviceView[];
   const devicesToDisplay = visibleDevices ? visibleDevices : allDeviceKeys;
@@ -118,6 +118,7 @@ export default function ResponsiveWebsiteEmbed({
       if (isLg && scaleSetting.lg !== undefined) return scaleSetting.lg;
       if (isMd && scaleSetting.md !== undefined) return scaleSetting.md;
       if (isSm && scaleSetting.sm !== undefined) return scaleSetting.sm;
+      if (isXs && scaleSetting.xs !== undefined) return scaleSetting.xs;
       if (scaleSetting.xs !== undefined) return scaleSetting.xs;
       return undefined;
     }
