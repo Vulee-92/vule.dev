@@ -8,7 +8,12 @@ import { NotFoundView } from '../error';
 import { Header } from "./header";
 import ResponsiveWebsiteEmbed from "src/components/mockup/ResponsiveWebsiteEmbed";
 import { DeviceView } from "src/theme";
-
+interface Module {
+    name: string;
+    description: string;
+    features: string[];
+    image?: string;
+}
 // --- Dữ liệu chi tiết cho các dự án ---
 interface ProjectDetail {
     id: number;
@@ -24,6 +29,7 @@ interface ProjectDetail {
     problem: string;
     goal: string;
     process: { title: string; description: string; image?: string }[];
+    modules?: Module[];
     screenshots: string[];
     device: string[]; // ['mobile', 'desktop'] | ['mobile'] | ['desktop']
     results: string;
@@ -33,14 +39,14 @@ interface ProjectDetail {
 
 const mockProjectData: ProjectDetail[] = [
     {
-        "id": 1,
-        "slug": "mo-wedding",
-        "title": "Nền tảng Thiệp Cưới Online & Quản lý Tiệc Cưới Toàn Diện",
-        "shortDescription": "Phát triển một nền tảng web app toàn diện, tự động hóa quy trình tạo, quản lý và gửi thiệp cưới online. Ứng dụng tích hợp các tính năng cá nhân hóa, quản lý khách mời thông minh và cung cấp công cụ mạnh mẽ cho quản trị viên.",
-        "heroImage": "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754892736/sanpham/gjomf0o7grcpfgmeaxm2.png",
-        "role": "Full-stack Developer",
-        "duration": "08/2025 - Hiện tại",
-        "technologies": [
+        id: 1,
+        slug: "mo-wedding",
+        title: "Nền tảng Thiệp Cưới Online & Quản lý Tiệc Cưới Toàn Diện",
+        shortDescription: "Phát triển một nền tảng web app toàn diện, tự động hóa quy trình tạo, quản lý và gửi thiệp cưới online. Ứng dụng tích hợp các tính năng cá nhân hóa, quản lý khách mời thông minh và cung cấp công cụ mạnh mẽ cho quản trị viên.",
+        heroImage: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754892736/sanpham/gjomf0o7grcpfgmeaxm2.png",
+        role: "Full-stack Developer",
+        duration: "08/2025 - Hiện tại",
+        technologies: [
             "ReactJS",
             "Node.js",
             "Express.js",
@@ -58,73 +64,175 @@ const mockProjectData: ProjectDetail[] = [
             "Vercel",
             "Render"
         ],
-        "liveDemo": "https://mo-wedding.vercel.app/",
-        "github": "https://github.com/vulee-92/wedding-app",
-        "device": [
+        liveDemo: "https://mo-wedding.vercel.app/",
+        github: "https://github.com/vulee-92/wedding-app",
+        device: [
             "mobile",
             "desktop",
             "tablet"
         ],
-        "initialDeviceView": "desktop",
-        "problem": "Các cặp đôi gặp khó khăn trong việc tạo thiệp cưới cá nhân hóa và quản lý danh sách khách mời một cách hiệu quả. Quy trình thủ công hiện tại tốn kém thời gian, chi phí và thiếu tính chuyên nghiệp.",
-        "goal": "Xây dựng một nền tảng toàn diện để tự động hóa quy trình từ tạo thiệp đến quản lý khách mời. Nâng cao trải nghiệm người dùng, cung cấp công cụ quản lý hiệu quả và hiện đại hóa ngành cưới hỏi.",
-        "process": [
+        initialDeviceView: "desktop",
+        problem: "Các cặp đôi gặp khó khăn trong việc tạo thiệp cưới cá nhân hóa và quản lý danh sách khách mời một cách hiệu quả. Quy trình thủ công hiện tại tốn kém thời gian, chi phí và thiếu tính chuyên nghiệp.",
+        goal: "Xây dựng một nền tảng toàn diện để tự động hóa quy trình từ tạo thiệp đến quản lý khách mời. Nâng cao trải nghiệm người dùng, cung cấp công cụ quản lý hiệu quả và hiện đại hóa ngành cưới hỏi.",
+        process: [
             {
-                "title": "Giai đoạn 1: Phát triển Front-end và Thiết kế UI/UX",
-                "description": "Sử dụng ReactJS, Material-UI và Framer Motion để xây dựng giao diện người dùng trực quan, có tính thẩm mỹ cao. Tập trung vào trải nghiệm mượt mà, thân thiện với người dùng trên mọi thiết bị và tích hợp hiệu ứng chuyển động tinh tế. Đảm bảo tính nhất quán và dễ bảo trì bằng cách sử dụng TypeScript.",
-                "image": "https://res.cloudinary.com/dxfsa7foy/image/upload/v1755318431/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-08-16_lu%CC%81c_11.27.04_o9xyx5.png"
+                title: "Giai đoạn 1: Phát triển Front-end và Thiết kế UI/UX",
+                description: "Sử dụng ReactJS, Material-UI và Framer Motion để xây dựng giao diện người dùng trực quan, có tính thẩm mỹ cao. Tập trung vào trải nghiệm mượt mà, thân thiện với người dùng trên mọi thiết bị và tích hợp hiệu ứng chuyển động tinh tế. Đảm bảo tính nhất quán và dễ bảo trì bằng cách sử dụng TypeScript.",
+                image: "https://res.cloudinary.com/dxfsa7foy/image/upload/v1755318431/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-08-16_lu%CC%81c_11.27.04_o9xyx5.png"
             },
             {
-                "title": "Giai đoạn 2: Xây dựng Back-end và API",
-                "description": "Phát triển các API RESTful mạnh mẽ bằng Node.js và Express.js. Sử dụng MongoDB để lưu trữ dữ liệu thiệp cưới, người dùng và khách mời. Tích hợp Cloudinary để quản lý hình ảnh và sử dụng Google Sheets API để xử lý RSVP.",
-                "image": "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754891500/sanpham/j9epfbqcycyvjsxhd97m.png"
+                title: "Giai đoạn 2: Xây dựng Back-end và API",
+                description: "Phát triển các API RESTful mạnh mẽ bằng Node.js và Express.js. Sử dụng MongoDB để lưu trữ dữ liệu thiệp cưới, người dùng và khách mời. Tích hợp Cloudinary để quản lý hình ảnh và sử dụng Google Sheets API để xử lý RSVP.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754891500/sanpham/j9epfbqcycyvjsxhd97m.png"
             },
             {
-                "title": "Giai đoạn 3: Tích hợp và Tối ưu hóa Hệ thống",
-                "description": "Xây dựng các tính năng nâng cao như hệ thống quản trị (Admin Dashboard), quản lý mã khuyến mãi, và các quy trình bảo mật (JWT Authentication). Tích hợp Telegram Bot để gửi thông báo real-time, đảm bảo các cập nhật quan trọng được thông báo ngay lập tức.",
-                "image": "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754891500/sanpham/j9epfbqcycyvjsxhd97m.png"
+                title: "Giai đoạn 3: Tích hợp và Tối ưu hóa Hệ thống",
+                description: "Xây dựng các tính năng nâng cao như hệ thống quản trị (Admin Dashboard), quản lý mã khuyến mãi, và các quy trình bảo mật (JWT Authentication). Tích hợp Telegram Bot để gửi thông báo real-time, đảm bảo các cập nhật quan trọng được thông báo ngay lập tức.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754891500/sanpham/j9epfbqcycyvjsxhd97m.png"
             }
         ],
-        "screenshots": [
+        screenshots: [
             "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754892736/sanpham/gjomf0o7grcpfgmeaxm2.png",
             "https://res.cloudinary.com/dkwyql8zi/image/upload/v1754891500/sanpham/j9epfbqcycyvjsxhd97m.png",
             "https://res.cloudinary.com/dxfsa7foy/image/upload/v1755318431/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-08-16_lu%CC%81c_11.27.04_o9xyx5.png"
         ],
-        "results": "Hệ thống đã tự động hóa toàn bộ quy trình từ thiết kế đến quản lý, giúp các cặp đôi tiết kiệm thời gian và chi phí. Nền tảng quản lý mạnh mẽ giúp đội ngũ admin làm việc hiệu quả hơn và nâng cao sự hài lòng của khách hàng.",
-        "learnings": "Nắm vững việc xây dựng ứng dụng full-stack với Node.js và React. Thành thạo việc tích hợp các API bên thứ ba phức tạp (Google Sheets, Telegram Bot) và triển khai hệ thống thông báo theo thời gian thực. Hiểu sâu hơn về tối ưu hóa hiệu suất và bảo mật ứng dụng web."
+        results: "Hệ thống đã tự động hóa toàn bộ quy trình từ thiết kế đến quản lý, giúp các cặp đôi tiết kiệm thời gian và chi phí. Nền tảng quản lý mạnh mẽ giúp đội ngũ admin làm việc hiệu quả hơn và nâng cao sự hài lòng của khách hàng.",
+        learnings: "Nắm vững việc xây dựng ứng dụng full-stack với Node.js và React. Thành thạo việc tích hợp các API bên thứ ba phức tạp (Google Sheets, Telegram Bot) và triển khai hệ thống thông báo theo thời gian thực. Hiểu sâu hơn về tối ưu hóa hiệu suất và bảo mật ứng dụng web."
     },
     {
         id: 2,
-        slug: 'car-dispatch-system',
-        title: 'Hệ thống Điều phối Dịch vụ Vận tải',
-        shortDescription: 'Phát triển hệ thống web app quản lý và điều phối xe dịch vụ, tối ưu hóa quy trình vận hành và nâng cao hiệu quả kinh doanh.',
-        heroImage: 'https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-app_e3d9f2.png',
-        role: 'Full-stack Developer',
-        duration: '06/2024 - 08/2024',
-        technologies: ['Next.js', 'NestJS', 'PostgreSQL', 'Docker'],
+        slug: "car-dispatch-system",
+        title: "Hệ thống Điều phối Dịch vụ Vận tải",
+        shortDescription: "Hệ thống web app quản lý và điều phối xe dịch vụ toàn diện, tối ưu hóa quy trình vận hành, quản lý chuyến đi, tài xế, khách hàng, tuyến đường, bảo trì và báo cáo, nâng cao hiệu quả vận tải và trải nghiệm người dùng.",
+        heroImage: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-app_e3d9f2.png",
+        role: "Full-stack Developer",
+        duration: "06/2024 - 08/2024",
+        technologies: [
+            "React 19",
+            "TypeScript",
+            "Vite",
+            "Ant Design 5",
+            "React Query",
+            "React Hook Form",
+            "Yup",
+            "NestJS 11",
+            "TypeORM",
+            "PostgreSQL",
+            "JWT",
+            "Passport",
+            "Cloudinary",
+            "Docker",
+            "Recharts"
+        ],
         liveDemo: "https://res.cloudinary.com/dxfsa7foy/image/upload/v1755318431/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-08-16_lu%CC%81c_11.27.04_o9xyx5.png",
-        device: ['mobile', 'desktop'],
-        initialDeviceView: 'desktop', // Mặc định hiển thị desktop
         github: null,
-        problem: 'Quy trình điều phối xe dịch vụ thủ công và thiếu hiệu quả, dẫn đến việc chậm trễ và khó khăn trong việc quản lý tài xế, khách hàng.',
-        goal: 'Xây dựng một hệ thống ba cấp người dùng: Admin, Điều phối viên, và Tài xế, nhằm tự động hóa quy trình điều phối và cung cấp khả năng quản lý chuyên sâu.',
+        device: ["mobile", "desktop"],
+        initialDeviceView: "desktop",
+        problem: "Quy trình điều phối xe dịch vụ thủ công, thiếu hệ thống thống nhất dẫn đến chậm trễ, khó quản lý tài xế, khách hàng, chuyến đi và tuyến đường. Hệ thống báo cáo và bảo trì chưa chuẩn hóa, gây rủi ro vận hành, giảm hiệu quả và trải nghiệm người dùng.",
+        goal: "Xây dựng hệ thống quản lý vận tải ba cấp: Admin, Operator, Driver. Tích hợp quản lý chuyến đi, xe, tài xế, khách hàng, tuyến đường, báo cáo, bảo trì, thông báo realtime, tối ưu hóa trải nghiệm người dùng cho từng vai trò.",
         process: [
             {
-                title: 'Phân tích và Lập kế hoạch',
-                description: 'Nghiên cứu nhu cầu của người dùng và xác định các tính năng cần thiết. Phác thảo kiến trúc hệ thống và lựa chọn công nghệ phù hợp.',
+                title: "Giai đoạn 1: Phân tích & Lập kế hoạch",
+                description: "Thu thập yêu cầu từ doanh nghiệp vận tải, phân tích chi tiết luồng công việc và phân quyền theo vai trò. Thiết kế kiến trúc module hóa, xác định công nghệ Frontend và Backend phù hợp.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot1_d5b7y9.png"
             },
             {
-                title: 'Tối ưu hóa quy trình',
-                description: 'Áp dụng các công nghệ hiện đại như Next.js và NestJS để đảm bảo hiệu suất và khả năng mở rộng. Sử dụng PostgreSQL để quản lý dữ liệu phức tạp một cách hiệu quả.',
+                title: "Giai đoạn 2: Phát triển Front-end",
+                description: "Sử dụng React 19 + TypeScript và Ant Design 5 để xây dựng SPA. Tạo giao diện riêng biệt cho từng vai trò:\n- Admin: Dashboard tổng quan, quản lý người dùng, xe, tuyến, chuyến, báo cáo, bảo trì.\n- Operator: Quản lý chuyến đi, gán tài xế, xem báo cáo.\n- Driver: Xem chuyến, cập nhật trạng thái, gửi báo cáo và yêu cầu bảo trì.\nTích hợp Recharts cho dashboard trực quan, React Hook Form và Yup validate form. Thiết kế responsive tối ưu cho desktop và mobile.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot2_e4c8d1.png"
             },
+            {
+                title: "Giai đoạn 3: Phát triển Back-end & API",
+                description: "Xây dựng backend với NestJS 11 và TypeORM kết nối PostgreSQL. Triển khai API RESTful cho các module: người dùng, xe, tuyến, chuyến đi, báo cáo, bảo trì, thông báo. Xác thực và phân quyền JWT + Passport. Hỗ trợ quản lý trạng thái chuyến và xe, báo cáo sự cố và bảo trì, lưu trữ hình ảnh trên Cloudinary, thông báo realtime cho các sự kiện quan trọng.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot1_d5b7y9.png"
+            },
+            {
+                title: "Giai đoạn 4: Kiểm thử & Tối ưu hóa",
+                description: "Unit test và e2e test với Jest cho toàn bộ luồng: đăng nhập, phân quyền, quản lý chuyến, báo cáo, bảo trì và thông báo realtime. Tối ưu hiệu năng API, caching với React Query, đảm bảo bảo mật và ổn định.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot2_e4c8d1.png"
+            },
+            {
+                title: "Giai đoạn 5: Triển khai & Bảo trì",
+                description: "Đóng gói Docker, triển khai hệ thống production. Giám sát và cập nhật tính năng mới, tối ưu database và dashboard. Đảm bảo uptime cao, khả năng mở rộng cho số lượng lớn tài xế, xe và chuyến đi.",
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot1_d5b7y9.png"
+            }
+        ],
+        modules: [
+            {
+                name: "Quản lý Người dùng",
+                description: "CRUD người dùng, phân quyền (Admin, Operator, Driver), đổi mật khẩu, cập nhật thông tin cá nhân, phân trang và tìm kiếm danh sách.",
+                features: [
+                    "Thêm/Sửa/Xóa người dùng",
+                    "Phân quyền theo vai trò",
+                    "Cập nhật thông tin cá nhân",
+                    "Tìm kiếm và phân trang"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-user-management.png"
+            },
+            {
+                name: "Quản lý Xe",
+                description: "CRUD xe, gán tài xế, quản lý trạng thái xe (đang hoạt động, bảo trì, ngừng hoạt động), lịch sử bảo trì và chuyến đi.",
+                features: [
+                    "Thêm/Sửa/Xóa xe",
+                    "Gán tài xế",
+                    "Quản lý trạng thái xe",
+                    "Xem lịch sử bảo trì và chuyến đi"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-car-management.png"
+            },
+            {
+                name: "Quản lý Tuyến đường",
+                description: "CRUD tuyến đường, quản lý điểm đi/đến, quãng đường, thời gian dự kiến.",
+                features: [
+                    "Thêm/Sửa/Xóa tuyến đường",
+                    "Quản lý điểm đi/đến",
+                    "Tính toán quãng đường và thời gian dự kiến"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-route-management.png"
+            },
+            {
+                name: "Quản lý Chuyến đi",
+                description: "Tạo chuyến đi, gán xe, tài xế, khách hàng, cập nhật trạng thái chuyến (mới, đang chạy, hoàn thành, hủy), lịch sử chi tiết.",
+                features: [
+                    "Tạo và chỉnh sửa chuyến đi",
+                    "Gán xe và tài xế",
+                    "Cập nhật trạng thái chuyến",
+                    "Xem lịch sử chuyến đi chi tiết"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-trip-management.png"
+            },
+            {
+                name: "Quản lý Báo cáo & Bảo trì",
+                description: "Tài xế gửi báo cáo, yêu cầu bảo trì; admin duyệt và cập nhật trạng thái. Hệ thống lưu trữ báo cáo, cảnh báo xe cần bảo trì.",
+                features: [
+                    "Gửi báo cáo sự cố và bảo trì",
+                    "Upload hình ảnh báo cáo lên Cloudinary",
+                    "Admin duyệt và cập nhật trạng thái",
+                    "Thông báo cảnh báo xe cần bảo trì"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-report-maintenance.png"
+            },
+            {
+                name: "Hệ thống Thông báo Realtime",
+                description: "Thông báo các sự kiện quan trọng như bảo trì, chuyến đi thay đổi, báo cáo mới cho người dùng tương ứng.",
+                features: [
+                    "Realtime alert cho Admin, Operator, Driver",
+                    "Thông báo khi chuyến đi thay đổi",
+                    "Thông báo khi có báo cáo mới hoặc yêu cầu bảo trì"
+                ],
+                image: "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/module-realtime-notifications.png"
+            }
         ],
         screenshots: [
-            'https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot1_d5b7y9.png',
-            'https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot2_e4c8d1.png',
+            "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot1_d5b7y9.png",
+            "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-screenshot2_e4c8d1.png",
+            "https://res.cloudinary.com/dkwyql8zi/image/upload/v1723380127/demo-car-dispatch-dashboard_xxx.png"
         ],
-        results: 'Hệ thống đã giảm thời gian điều phối xuống 50%, nâng cao sự hài lòng của khách hàng và tối ưu hóa lộ trình của tài xế.',
-        learnings: 'Học cách xây dựng các ứng dụng phức tạp với nhiều vai trò người dùng và quản lý dữ liệu hiệu quả với PostgreSQL. Hiểu rõ hơn về kiến trúc microservices với NestJS.'
-    },
+        results: "Hệ thống giảm 50% thời gian điều phối, tối ưu lộ trình tài xế, nâng cao hiệu quả vận hành. Admin và Operator theo dõi realtime toàn bộ hoạt động, tài xế thao tác nhanh trên mobile. Quy trình tự động hóa giảm lỗi thủ công, đảm bảo bảo mật và chính xác.",
+        learnings: "Nắm vững phát triển full-stack React + NestJS cho nhiều vai trò, tối ưu quản lý dữ liệu phức tạp PostgreSQL. Thành thạo Cloudinary, JWT, Passport, Docker, xây dựng dashboard trực quan và hệ thống realtime thông báo, báo cáo, bảo trì."
+    }
+
+    ,
     {
         id: 3,
         slug: 'manager-apartment',
@@ -497,7 +605,7 @@ const ConnectedChips = ({ technologies }: { technologies: string[] }) => {
                     {technologies.map((tech, index) => (
 
                         <motion.div key={tech} variants={childVariants} ref={(el) => void (chipRefs.current[index] = el)}
->
+                        >
 
                             <Chip label={tech} size="small" sx={{
 
@@ -677,6 +785,45 @@ export default function CaseStudy() {
                                                 ))}
                                             </InViewWrapper>
                                         </Box>
+                                     <Box mb={8}>
+            <Typography variant="h4" fontWeight="bold" gutterBottom>
+                Các Module
+            </Typography>
+            <Grid container spacing={4}>
+                {projectData.modules?.map((module, index) => (
+                    <Grid size={{xs:12}}  key={index}>
+                        <Box sx={{ border: '1px solid #eee', borderRadius: 2, p: 3, height: '100%', boxShadow: 3 }}>
+                            {/* Tên module */}
+                            <Typography variant="h6" fontWeight="bold" gutterBottom>
+                                {module.name}
+                            </Typography>
+                            {/* Mô tả module */}
+                            <Typography variant="body2" sx={{ mb: 2 }}>
+                                {module.description}
+                            </Typography>
+                            {/* Danh sách tính năng */}
+                            {module.features?.length > 0 && (
+                                <Box component="ul" sx={{ pl: 3, mb: 2 }}>
+                                    {module.features.map((feature, i) => (
+                                        <li key={i}>
+                                            <Typography variant="body2">{feature}</Typography>
+                                        </li>
+                                    ))}
+                                </Box>
+                            )}
+                            {/* Hình ảnh module */}
+                            {module.image && (
+                                <Box
+                                    component="img"
+                                    src={module.image}
+                                    sx={{ width: '100%', borderRadius: 2, mt: 2 }}
+                                />
+                            )}
+                        </Box>
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
 
                                         {/* Thư viện ảnh */}
                                         <Box mb={8}>

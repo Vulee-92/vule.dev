@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { ReactNode } from 'react';
 import Logo from './logo';
 import ResponsiveWebsiteEmbed from 'src/components/mockup/ResponsiveWebsiteEmbed';
+import { Link } from 'react-router-dom';
 
 // Styled components for animation containers
 const AnimatedBox = styled(motion.div)({
@@ -225,24 +226,13 @@ export default function Footer() {
               >
                 pixel-duo.vercel.app
               </a>
-              <ResponsiveWebsiteEmbed
-                url="https://pixel-duo.vercel.app/"
-                initialDeviceView="mobile" // Mặc định hiển thị mobile
-                visibleDevices={['mobile']}
 
-                scales={{
-                  desktop: 3, // Ghi đè scale mặc định cho desktop
-                  mobile: 0.6,  // Ghi đè scale mặc định cho mobile
-                  tablet: 0.3
-                }}
-
-              />
             </Typography>
           </FooterSection>
 
-         
 
-         
+
+
         </Box>
 
         {/* Right Column */}
@@ -274,7 +264,7 @@ export default function Footer() {
 
             </Typography>
           </FooterSection>
-           <FooterSection title="album" delay={0.4}>
+          <FooterSection title="album" delay={0.4}>
             <Typography
               sx={{
                 fontSize: { xs: 18, md: 20, lg: 22 },
@@ -287,7 +277,7 @@ export default function Footer() {
 
             </Typography>
           </FooterSection>
- <FooterSection title="sitemap" delay={0.6}>
+          <FooterSection title="sitemap" delay={0.6}>
             <motion.div
               variants={linkContainerVariants}
               initial="hidden"
@@ -296,8 +286,10 @@ export default function Footer() {
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
                 {siteLinks.map((item) => (
                   <motion.div key={item} variants={linkItemVariants}>
-                    <StyledLink href={`/${item.toLowerCase()}`}>
-                      {item}
+                    <StyledLink href={item === 'home' ? '/' : `/${item.toLowerCase()}`}  >
+                      <StyledLink>
+                        {item}
+                      </StyledLink>
                     </StyledLink>
                   </motion.div>
                 ))}

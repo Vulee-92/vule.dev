@@ -3,6 +3,8 @@
 import { Box, Container, Typography, Grid, styled } from "@mui/material";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./component/ProjectCard";
+import { Header } from "../header";
+import Footer from "../Footer";
 
 // Dữ liệu dự án mẫu
 const projectsData = [
@@ -44,13 +46,13 @@ const containerVariants = {
 };
 
 const HeroText = styled(motion.h1)(({ theme }) => ({
-   fontSize: 'clamp(8rem, 5vw, 18rem)',
+   fontSize: 'clamp(4rem, 5vw, 20rem)',
   fontWeight: 800,
   lineHeight: 0.8,
   letterSpacing: '-0.02em',
   margin: 0,
   textAlign: 'center',
-  color: '#fff',
+  color: '#000',
   position: 'relative',
   textTransform: 'uppercase',
   zIndex: 3,
@@ -58,7 +60,8 @@ const HeroText = styled(motion.h1)(({ theme }) => ({
 
 export default function ProjectsList() {
   return (
-    <Box sx={{ bgcolor: "#000" }}>
+    <Box sx={{ bgcolor: "#fff" }}>
+      <Header />
      <div className="section" >
                <Box
                  sx={{
@@ -102,6 +105,7 @@ export default function ProjectsList() {
           ))}
         </Grid>
       </motion.div>
+      <Footer />
     </Box>
   );
 }

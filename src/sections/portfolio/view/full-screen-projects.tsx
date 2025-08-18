@@ -177,7 +177,6 @@ const FullScreenProjects = () => {
     target: containerRef,
     offset: ['start start', 'end end'],
   });
-  const { scrollY } = useViewportScroll();
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 

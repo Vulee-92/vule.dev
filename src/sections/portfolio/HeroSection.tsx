@@ -3,13 +3,10 @@ import React, { useRef } from 'react';
 import { Box } from '@mui/material';
 import DotParticlesWithText from 'src/components/ui/DotParticles';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { HeroPill } from './components/HeroPill';
-import SkillsDock from './SkillsDock';
-
 
 function HeroSection({ heroScale }: { heroScale: number }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -18,12 +15,12 @@ function HeroSection({ heroScale }: { heroScale: number }) {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 200]);
-  
+
   return (
-    <Box 
+    <Box
       ref={containerRef}
       className="section-snap"
-      sx={{ 
+      sx={{
         position: 'relative',
         minHeight: '150vh',
         overflow: 'hidden'
@@ -51,7 +48,7 @@ function HeroSection({ heroScale }: { heroScale: number }) {
           justifyContent: 'center',
         }}
       >
-        
+
 
         {/* Main Content */}
         <DotParticlesWithText heroScale={heroScale} />

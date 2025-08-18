@@ -128,7 +128,7 @@ const PortfolioView = () => {
       content: (
         <Box>
           <Typography variant="h5" fontWeight="700">
-          Mơ Wedding – Giải pháp thiệp cưới số hóa toàn diện cho cặp đôi hiện đại
+            Mơ Wedding – Giải pháp thiệp cưới số hóa toàn diện cho cặp đôi hiện đại
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ fontSize: 13 }} >
             07.2025 – Hiện tại
@@ -276,9 +276,13 @@ const PortfolioView = () => {
 
 
   return (
-    <div>
+    <Box sx={{
+      width: '100vw',        // bằng 100% viewport width
+      overflowX: 'hidden',   // ẩn scroll ngang
+    }}>
       {/* Intro Animation */}
       {showIntro && <Intro onComplete={() => setShowIntro(false)} />}
+      <Header />
 
       {/* Main Content */}
       <motion.section
@@ -286,7 +290,6 @@ const PortfolioView = () => {
         animate={{ opacity: showIntro ? 0 : 1 }}
         transition={{ duration: 0.8 }}
       >
-        <Header />
         <HeroSection heroScale={2} />
       </motion.section>
       <Handwriting />
@@ -309,12 +312,12 @@ const PortfolioView = () => {
       >
         <TimelineSection />
       </motion.section> */}
-     
+
       <FullScreenProjects />     {/* End of Profile Marker */}
       <ContactForm />
       <AnimatedTextSection />
       <Footer />
-    </div>
+    </Box>
   );
 };
 

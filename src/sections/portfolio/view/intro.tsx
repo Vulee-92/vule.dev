@@ -59,14 +59,22 @@ export default function Intro({ onComplete }: IntroProps) {
     <AnimatePresence>
       <IntroContainer>
         {/* Handwriting SVG */}
+        <Box
+    sx={{
+        width: '100%',
+        maxWidth: { xs: 200, md: 400, lg: 500, xl: 500 }, // Điều chỉnh maxWidth cho từng breakpoint
+        height: 'auto',
+        margin: '0 auto',
+        transform: 'translateZ(0)',
+    }}
+>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1126 637"
           fill="none"
           style={{
             width: '100%',
-            maxWidth: '500px',
-            height: 'auto',
+            height: '100%',
             // Thêm translateZ(0) để kích hoạt tăng tốc GPU
             transform: 'translateZ(0)',
           }}
@@ -86,7 +94,7 @@ export default function Intro({ onComplete }: IntroProps) {
             onAnimationComplete={() => setIsDrawingComplete(true)}
           />
         </motion.svg>
-
+</Box>
         {/* {isDrawingComplete && (
           <SubText
             initial={{ opacity: 0, y: 20 }}

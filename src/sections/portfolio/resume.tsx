@@ -29,7 +29,7 @@ const formatText = (text: any) => {
 
 export default function LeBuiThanhVuResume() {
   const [lang, setLang] = useState("vi");
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     const savedLang = localStorage.getItem("resumeLang");
     if (savedLang) {
@@ -158,82 +158,85 @@ export default function LeBuiThanhVuResume() {
 
   const projects = [
     {
-  title: t("Nền tảng Thiệp Cưới Online & Quản lý Tiệc Cưới", "Online Wedding Invitation & Event Management Platform"),
-  role: "Full-stack Developer",
-  period: t("08/2025 – Hiện tại", "08/2025 – Present"),
-  bullets: [
-    {
-      desc: t(
-        `Thiết kế và phát triển một nền tảng web app toàn diện, giúp các cặp đôi dễ dàng tạo thiệp cưới cá nhân hóa, gửi thiệp trực tuyến và quản lý khách mời chỉ trong một hệ thống duy nhất.`,
-        `Designed and developed a comprehensive web application platform enabling couples to easily create personalized wedding invitations, send them online, and manage guests within a single system.`
-      ),
-    },
-    {
-      desc: t(
-        `**Phía khách mời:** Cung cấp giao diện hiện đại, hỗ trợ tùy chỉnh thiệp trực quan, phản hồi tham dự (RSVP) trực tuyến, và viết lời chúc. Tối ưu hiển thị trên **mobile, tablet và desktop**.`,
-        `**For Guests:** Delivered a modern interface with intuitive invitation customization, online RSVP, and guest message board. Optimized for **mobile, tablet, and desktop**.`
-      ),
-    },
-    {
-      desc: t(
-        `**Phía Admin:** Xây dựng Dashboard quản trị thông minh cho phép theo dõi danh sách khách mời, tiến độ sự kiện, lịch sử đặt thiệp và mã khuyến mãi. Tích hợp hệ thống thông báo real-time qua **Telegram Bot** để cập nhật nhanh chóng.`,
-        `**For Admins:** Built a smart admin dashboard to manage guest lists, track event progress, invitation orders, and promo codes. Integrated **real-time notifications** via Telegram Bot for instant updates.`
-      ),
-    },
-    {
-      desc: t(
-        `**Trạng thái hiện tại:** Khi có đơn hàng, tiến hành thay data và deploy theo thông tin của khách. **Định hướng tương lai:** phát triển module **Template Builder** cho phép khách tự chọn mẫu, chỉnh sửa, thanh toán và triển khai thiệp trực tiếp mà không cần can thiệp từ admin.`,
-        `**Current State:** Orders are currently fulfilled by updating client data and redeploying the app. **Future Plan:** Develop a **Template Builder** module that allows clients to select templates, customize, make payments, and self-deploy invitations without admin intervention.`
-      ),
-    },
-    {
-      desc: t(
-        `**Kết quả:** Ra mắt sản phẩm đã ghi nhận **4 đơn đặt hàng ngay trong tháng đầu tiên**, chứng minh tính khả thi và nhu cầu thực tế từ thị trường.`,
-        `**Results:** Achieved **4 paid orders in the first launch month**, demonstrating strong feasibility and real market demand.`
-      ),
-    },
-    {
-      desc: t(
-        `**Công nghệ:** ReactJS, Node.js, Express.js, MongoDB, TypeScript, Material-UI, Framer Motion, Redux Toolkit, Redux Saga, Cloudinary API, Google Sheets API, Telegram Bot API, JWT, Docker, Vercel, Render.`,
-        `**Technologies:** ReactJS, Node.js, Express.js, MongoDB, TypeScript, Material-UI, Framer Motion, Redux Toolkit, Redux Saga, Cloudinary API, Google Sheets API, Telegram Bot API, JWT, Docker, Vercel, Render.`
-      ),
-    },
-  ],
-  link: {
-    live: "https://mo-wedding.vercel.app/",
-    github: "https://github.com/vulee-92/wedding-app",
-  }
-},
-
-    {
-      title: t("Hệ thống Điều phối Dịch vụ Vận tải", "Car Service Dispatch System"),
+      title: t("Nền tảng Thiệp Cưới Online & Quản lý Tiệc Cưới", "Online Wedding Invitation & Event Management Platform"),
       role: "Full-stack Developer",
-      period: "06/2024 – 08/2024",
+      period: t("08/2025 – Hiện tại", "08/2025 – Present"),
       bullets: [
         {
           desc: t(
-            `Phát triển hệ thống web app quản lý và điều phối xe dịch vụ, **tối ưu hóa quy trình vận hành** và nâng cao hiệu quả kinh doanh.`,
-            `Developed a web application for car service dispatch management, **optimizing operational processes** and enhancing business efficiency.`
+            `Thiết kế và phát triển một nền tảng web app toàn diện, giúp các cặp đôi dễ dàng tạo thiệp cưới cá nhân hóa, gửi thiệp trực tuyến và quản lý khách mời chỉ trong một hệ thống duy nhất.`,
+            `Designed and developed a comprehensive web application platform enabling couples to easily create personalized wedding invitations, send them online, and manage guests within a single system.`
           ),
         },
         {
           desc: t(
-            `Xây dựng hệ thống ba cấp người dùng: **Admin**, **Điều phối viên**, và **Tài xế**.`,
-            `Built a three-tiered user system: **Admin**, **Dispatcher**, and **Driver**.`
+            `**Phía khách mời:** Cung cấp giao diện hiện đại, hỗ trợ tùy chỉnh thiệp trực quan, phản hồi tham dự (RSVP) trực tuyến, và viết lời chúc. Tối ưu hiển thị trên **mobile, tablet và desktop**.`,
+            `**For Guests:** Delivered a modern interface with intuitive invitation customization, online RSVP, and guest message board. Optimized for **mobile, tablet, and desktop**.`
           ),
         },
         {
           desc: t(
-            `**Công nghệ sử dụng:** Docker, PostgreSQL, Next.js, NestJS, VPS server.`,
-            `**Technologies:** Docker, PostgreSQL, Next.js, NestJS, VPS server.`
+            `**Phía Admin:** Xây dựng Dashboard quản trị thông minh cho phép theo dõi danh sách khách mời, tiến độ sự kiện, lịch sử đặt thiệp và mã khuyến mãi. Tích hợp hệ thống thông báo real-time qua **Telegram Bot** để cập nhật nhanh chóng.`,
+            `**For Admins:** Built a smart admin dashboard to manage guest lists, track event progress, invitation orders, and promo codes. Integrated **real-time notifications** via Telegram Bot for instant updates.`
+          ),
+        },
+        {
+          desc: t(
+            `**Trạng thái hiện tại:** Khi có đơn hàng, tiến hành thay data và deploy theo thông tin của khách. **Định hướng tương lai:** phát triển module **Template Builder** cho phép khách tự chọn mẫu, chỉnh sửa, thanh toán và triển khai thiệp trực tiếp mà không cần can thiệp từ admin.`,
+            `**Current State:** Orders are currently fulfilled by updating client data and redeploying the app. **Future Plan:** Develop a **Template Builder** module that allows clients to select templates, customize, make payments, and self-deploy invitations without admin intervention.`
+          ),
+        },
+        {
+          desc: t(
+            `**Kết quả:** Ra mắt sản phẩm đã ghi nhận **4 đơn đặt hàng ngay trong tháng đầu tiên**, chứng minh tính khả thi và nhu cầu thực tế từ thị trường.`,
+            `**Results:** Achieved **4 paid orders in the first launch month**, demonstrating strong feasibility and real market demand.`
+          ),
+        },
+        {
+          desc: t(
+            `**Công nghệ:** ReactJS, Node.js, Express.js, MongoDB, TypeScript, Material-UI, Framer Motion, Redux Toolkit, Redux Saga, Cloudinary API, Google Sheets API, Telegram Bot API, JWT, Docker, Vercel, Render.`,
+            `**Technologies:** ReactJS, Node.js, Express.js, MongoDB, TypeScript, Material-UI, Framer Motion, Redux Toolkit, Redux Saga, Cloudinary API, Google Sheets API, Telegram Bot API, JWT, Docker, Vercel, Render.`
           ),
         },
       ],
       link: {
-        live: null, // Thêm link sản phẩm nếu có
-        github: null, // Thêm link Github nếu có
+        live: "https://mo-wedding.vercel.app/",
+        github: "https://github.com/vulee-92/wedding-app",
       }
     },
+
+   {
+    title: "Hệ thống Quản lý và Điều phối Vận tải (Cars-project)",
+    role: "Full-stack Developer",
+    period: "06/2024 – 08/2024",
+    bullets: [
+        {
+            desc: "Phát triển một hệ thống web app toàn diện để **tự động hóa** và **tối ưu hóa quy trình vận hành** cho doanh nghiệp vận tải, quản lý xe, tài xế và khách hàng."
+        },
+        {
+            desc: "Xây dựng hệ thống ba cấp người dùng với các vai trò **Admin**, **Operator**, và **Tài xế**, mỗi vai trò có giao diện và quyền hạn độc lập."
+        },
+        {
+            desc: "Chịu trách nhiệm toàn bộ **backend** sử dụng **NestJS 11** và **TypeORM**, kết nối với cơ sở dữ liệu **PostgreSQL**. Đảm bảo bảo mật với **JWT** và **Passport** để xác thực và phân quyền."
+        },
+        {
+            desc: "Phát triển **frontend** với **React 19** và **TypeScript**, sử dụng **Ant Design 5** cho giao diện hiện đại và **React Query** để tối ưu hóa hiệu năng, xử lý dữ liệu bất đồng bộ."
+        },
+        {
+            desc: "Triển khai các tính năng cốt lõi: **Quản lý Chuyến đi** (tạo mới, cập nhật trạng thái), **Hệ thống Báo cáo & Bảo trì** (cho phép tài xế gửi báo cáo kèm ảnh qua **Cloudinary**), và **Hệ thống Thông báo Realtime**."
+        },
+        {
+            desc: "Hệ thống đã giảm **50% thời gian điều phối** và nâng cao hiệu quả làm việc, cung cấp các công cụ trực quan giúp ban lãnh đạo dễ dàng theo dõi và đưa ra quyết định."
+        },
+        {
+            desc: "**Công nghệ:** React 19 (TypeScript), NestJS 11, PostgreSQL, Docker, TypeORM, JWT, Cloudinary, Recharts."
+        }
+    ],
+    link: {
+        live: "https://res.cloudinary.com/dxfsa7foy/image/upload/v1755318431/A%CC%89nh_ma%CC%80n_hi%CC%80nh_2025-08-16_lu%CC%81c_11.27.04_o9xyx5.png",
+        github: null
+    }
+},
     {
       title: t("Website bán nhạc cụ", "Music Store Website"),
       role: "Full-stack Developer",
@@ -292,147 +295,147 @@ export default function LeBuiThanhVuResume() {
 
   return (
     <>
-      <Container maxWidth="md" sx={{ py: 4}}>
-      <AnimatePresence mode="wait">
-        
-        <motion.div key={lang} initial="hidden" animate="visible" exit="exit" variants={sectionVariants}>
-          <Grid container spacing={2}>
-            <Grid size={8}>
-              <Typography variant="h4" fontWeight="bold">{resumeTitle}</Typography>
-              <Typography variant="body1" fontWeight="bold" sx={{ fontStyle: 'italic' }}>{resumeSubtitle}</Typography>
-              <Typography variant="body2">{t("github.com/Vulee-92", "github.com/Vulee-92")}</Typography>
-              <Typography variant="body2">{t("linkedin.com/in/vulee92", "linkedin.com/in/vulee92")}</Typography>
-            </Grid>
-            <Grid size={4} sx={{ textAlign: 'right' }}>
-              <Button onClick={handleLangChange} variant="outlined" size="small" sx={{  mr: 1 }}>
-                {lang === "vi" ? "English" : "Tiếng Việt"}
-              </Button>
-              <Button onClick={handleDownloadPDF} variant="contained" size="small">
-                Download PDF
-              </Button>
-              <Typography variant="body2" sx={{ mt: 1 }}>Email: lebuiThanhvudev@gmail.com</Typography>
-              <Typography variant="body2">Mobile: 0986 32 09 32</Typography>
-              <Typography variant="body2">{t("Địa chỉ: Huyện Hoằng Hoá, Phường Hoà Đông, Hoà Thuận, Tp. Tam Kỳ, Quảng Nam", "Address: Hoang Hoa District, Hoa Dong Ward, Hoa Thuan, Tam Ky City, Quang Nam")}</Typography>
-            </Grid>
-          </Grid>
-          <Divider sx={{ my: 1.5, borderColor: 'black' }} />
+      <Container maxWidth="md" sx={{ py: 4 }}>
+        <AnimatePresence mode="wait">
 
-          <div id="resume-content">
-            {/* EDUCATION */}
-            <MotionBox variants={sectionVariants}>
-              <Typography variant="h6" fontWeight="bold">EDUCATION</Typography>
-              <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
-              {education.map((edu, index) => (
-                <MotionBox key={index} mb={1} variants={itemVariants}>
-                  <Grid container>
-                    <Grid size={8}>
-                      <Typography variant="body1" fontWeight="bold">{edu.school}</Typography>
-                      <Typography variant="body2">{edu.degree}</Typography>
-                      <Typography variant="body2">{edu.notes}</Typography>
-                    </Grid>
-                    <Grid size={4} sx={{ textAlign: 'right' }}>
-                      <Typography variant="body2">{edu.location}</Typography>
-                      <Typography variant="body2" fontStyle="italic">{edu.period}</Typography>
-                      <Typography variant="body2" fontStyle="italic">{edu.gpa}</Typography>
-                    </Grid>
-                  </Grid>
-                </MotionBox>
-              ))}
-            </MotionBox>
-
-            {/* EXPERIENCE */}
-            <MotionBox mt={3} variants={sectionVariants}>
-              <Typography variant="h6" fontWeight="bold">EXPERIENCE</Typography>
-              <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
-              {experience.map((exp, index) => (
-                <MotionBox key={index} mb={2} variants={itemVariants}>
-                  <Grid container>
-                    <Grid size={8}>
-                      <Typography variant="body1" fontWeight="bold">{exp.company}</Typography>
-                      <Typography variant="body2" fontStyle="italic">{exp.role}</Typography>
-                    </Grid>
-                    <Grid size={4} sx={{ textAlign: 'right' }}>
-                      <Typography variant="body2">{exp.location}</Typography>
-                      <Typography variant="body2" fontStyle="italic">{exp.period}</Typography>
-                    </Grid>
-                  </Grid>
-                  <Box component="ul" sx={{ mt: 0.5, pl: 2, '& li': { mb: 0.5, display: 'list-item', listStyleType: 'disc' } }}>
-                    {exp.bullets.map((bullet, i) => (
-                      <li key={i}>
-                        <Typography variant="body2" dangerouslySetInnerHTML={{ __html: formatText(bullet.desc) }} />
-                      </li>
-                    ))}
-                  </Box>
-                </MotionBox>
-              ))}
-            </MotionBox>
-
-            {/* PROJECTS */}
-            <MotionBox mt={3} variants={sectionVariants}>
-              <Typography variant="h6" fontWeight="bold">PROJECTS</Typography>
-              <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
-              {projects.map((proj, index) => (
-                <MotionBox key={index} mb={2} variants={itemVariants}>
-                  <Grid container>
-                    <Grid size={8}>
-                      <Typography variant="body1" fontWeight="bold">{proj.title}</Typography>
-                      <Typography variant="body2" fontStyle="italic">{proj.role}</Typography>
-                    </Grid>
-                    <Grid size={4} sx={{ textAlign: 'right' }}>
-                      <Typography variant="body2" fontStyle="italic">{proj.period}</Typography>
-                    </Grid>
-                  </Grid>
-                  <Box component="ul" sx={{ mt: 0.5, pl: 2, '& li': { mb: 0.5, display: 'list-item', listStyleType: 'disc' } }}>
-                    {proj.bullets.map((bullet, i) => (
-                      <li key={i}>
-                        <Typography variant="body2" dangerouslySetInnerHTML={{ __html: formatText(bullet.desc) }} />
-                      </li>
-                    ))}
-                    {proj.link?.live && (
-                      <li style={{ marginTop: 1 }}>
-                        <Typography variant="body2">
-                          <Box component="span" fontWeight="bold">Live Demo: </Box>
-                          <Link href={proj.link.live} target="_blank" rel="noopener noreferrer">{proj.link.live}</Link>
-                        </Typography>
-                      </li>
-                    )}
-                    {proj.link?.github && (
-                      <li style={{ marginTop: 1 }}>
-                        <Typography variant="body2">
-                          <Box component="span" fontWeight="bold">Github: </Box>
-                          <Link href={proj.link.github} target="_blank" rel="noopener noreferrer">{proj.link.github}</Link>
-                        </Typography>
-                      </li>
-                    )}
-                  </Box>
-                </MotionBox>
-              ))}
-            </MotionBox>
-
-            {/* PROGRAMMING SKILLS */}
-            <MotionBox mt={3} variants={sectionVariants}>
-              <Typography variant="h6" fontWeight="bold">PROGRAMMING SKILLS</Typography>
-              <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
-              <Grid container>
-                <Grid size={6}>
-                  <Typography variant="body2">
-                    <Box component="span" fontWeight="bold">Languages: </Box>
-                    {programmingSkills.languages}
-                  </Typography>
-                </Grid>
-                <Grid size={6}>
-                  <Typography variant="body2">
-                    <Box component="span" fontWeight="bold">Technologies: </Box>
-                    {programmingSkills.technologies}
-                  </Typography>
-                </Grid>
+          <motion.div key={lang} initial="hidden" animate="visible" exit="exit" variants={sectionVariants}>
+            <Grid container spacing={2}>
+              <Grid size={8}>
+                <Typography variant="h4" fontWeight="bold">{resumeTitle}</Typography>
+                <Typography variant="body1" fontWeight="bold" sx={{ fontStyle: 'italic' }}>{resumeSubtitle}</Typography>
+                <Typography variant="body2">{t("github.com/Vulee-92", "github.com/Vulee-92")}</Typography>
+                <Typography variant="body2">{t("linkedin.com/in/vulee92", "linkedin.com/in/vulee92")}</Typography>
               </Grid>
-            </MotionBox>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </Container>
+              <Grid size={4} sx={{ textAlign: 'right' }}>
+                <Button onClick={handleLangChange} variant="outlined" size="small" sx={{ mr: 1 }}>
+                  {lang === "vi" ? "English" : "Tiếng Việt"}
+                </Button>
+                <Button onClick={handleDownloadPDF} variant="contained" size="small">
+                  Download PDF
+                </Button>
+                <Typography variant="body2" sx={{ mt: 1 }}>Email: lebuiThanhvudev@gmail.com</Typography>
+                <Typography variant="body2">Mobile: 0986 32 09 32</Typography>
+                <Typography variant="body2">{t("Địa chỉ: Huyện Hoằng Hoá, Phường Hoà Đông, Hoà Thuận, Tp. Tam Kỳ, Quảng Nam", "Address: Hoang Hoa District, Hoa Dong Ward, Hoa Thuan, Tam Ky City, Quang Nam")}</Typography>
+              </Grid>
+            </Grid>
+            <Divider sx={{ my: 1.5, borderColor: 'black' }} />
+
+            <div id="resume-content">
+              {/* EDUCATION */}
+              <MotionBox variants={sectionVariants}>
+                <Typography variant="h6" fontWeight="bold">EDUCATION</Typography>
+                <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
+                {education.map((edu, index) => (
+                  <MotionBox key={index} mb={1} variants={itemVariants}>
+                    <Grid container>
+                      <Grid size={8}>
+                        <Typography variant="body1" fontWeight="bold">{edu.school}</Typography>
+                        <Typography variant="body2">{edu.degree}</Typography>
+                        <Typography variant="body2">{edu.notes}</Typography>
+                      </Grid>
+                      <Grid size={4} sx={{ textAlign: 'right' }}>
+                        <Typography variant="body2">{edu.location}</Typography>
+                        <Typography variant="body2" fontStyle="italic">{edu.period}</Typography>
+                        <Typography variant="body2" fontStyle="italic">{edu.gpa}</Typography>
+                      </Grid>
+                    </Grid>
+                  </MotionBox>
+                ))}
+              </MotionBox>
+
+              {/* EXPERIENCE */}
+              <MotionBox mt={3} variants={sectionVariants}>
+                <Typography variant="h6" fontWeight="bold">EXPERIENCE</Typography>
+                <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
+                {experience.map((exp, index) => (
+                  <MotionBox key={index} mb={2} variants={itemVariants}>
+                    <Grid container>
+                      <Grid size={8}>
+                        <Typography variant="body1" fontWeight="bold">{exp.company}</Typography>
+                        <Typography variant="body2" fontStyle="italic">{exp.role}</Typography>
+                      </Grid>
+                      <Grid size={4} sx={{ textAlign: 'right' }}>
+                        <Typography variant="body2">{exp.location}</Typography>
+                        <Typography variant="body2" fontStyle="italic">{exp.period}</Typography>
+                      </Grid>
+                    </Grid>
+                    <Box component="ul" sx={{ mt: 0.5, pl: 2, '& li': { mb: 0.5, display: 'list-item', listStyleType: 'disc' } }}>
+                      {exp.bullets.map((bullet, i) => (
+                        <li key={i}>
+                          <Typography variant="body2" dangerouslySetInnerHTML={{ __html: formatText(bullet.desc) }} />
+                        </li>
+                      ))}
+                    </Box>
+                  </MotionBox>
+                ))}
+              </MotionBox>
+
+              {/* PROJECTS */}
+              <MotionBox mt={3} variants={sectionVariants}>
+                <Typography variant="h6" fontWeight="bold">PROJECTS</Typography>
+                <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
+                {projects.map((proj, index) => (
+                  <MotionBox key={index} mb={2} variants={itemVariants}>
+                    <Grid container>
+                      <Grid size={8}>
+                        <Typography variant="body1" fontWeight="bold">{proj.title}</Typography>
+                        <Typography variant="body2" fontStyle="italic">{proj.role}</Typography>
+                      </Grid>
+                      <Grid size={4} sx={{ textAlign: 'right' }}>
+                        <Typography variant="body2" fontStyle="italic">{proj.period}</Typography>
+                      </Grid>
+                    </Grid>
+                    <Box component="ul" sx={{ mt: 0.5, pl: 2, '& li': { mb: 0.5, display: 'list-item', listStyleType: 'disc' } }}>
+                      {proj.bullets.map((bullet, i) => (
+                        <li key={i}>
+                          <Typography variant="body2" dangerouslySetInnerHTML={{ __html: formatText(bullet.desc) }} />
+                        </li>
+                      ))}
+                      {proj.link?.live && (
+                        <li style={{ marginTop: 1 }}>
+                          <Typography variant="body2">
+                            <Box component="span" fontWeight="bold">Live Demo: </Box>
+                            <Link href={proj.link.live} target="_blank" rel="noopener noreferrer">{proj.link.live}</Link>
+                          </Typography>
+                        </li>
+                      )}
+                      {proj.link?.github && (
+                        <li style={{ marginTop: 1 }}>
+                          <Typography variant="body2">
+                            <Box component="span" fontWeight="bold">Github: </Box>
+                            <Link href={proj.link.github} target="_blank" rel="noopener noreferrer">{proj.link.github}</Link>
+                          </Typography>
+                        </li>
+                      )}
+                    </Box>
+                  </MotionBox>
+                ))}
+              </MotionBox>
+
+              {/* PROGRAMMING SKILLS */}
+              <MotionBox mt={3} variants={sectionVariants}>
+                <Typography variant="h6" fontWeight="bold">PROGRAMMING SKILLS</Typography>
+                <Divider sx={{ mt: 0.5, mb: 1, borderColor: 'black' }} />
+                <Grid container>
+                  <Grid size={6}>
+                    <Typography variant="body2">
+                      <Box component="span" fontWeight="bold">Languages: </Box>
+                      {programmingSkills.languages}
+                    </Typography>
+                  </Grid>
+                  <Grid size={6}>
+                    <Typography variant="body2">
+                      <Box component="span" fontWeight="bold">Technologies: </Box>
+                      {programmingSkills.technologies}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </MotionBox>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </Container>
     </>
-  
+
   );
 }
